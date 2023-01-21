@@ -1,14 +1,15 @@
 const express=require('express')
 const port=3000;
 const app=express()
+const BodyParser=require('body-parser')
 
-const v1Router=require('./v1/routes')
+// const v1Router=require('./v1/routes')
 
 const v1Routerworkout=require('./v1/routes/workoutRoute')
 
 // app.use('/api/v1',v1Router)
-
-app.use('/api/v1/workout',v1Routerworkout)
+app.use(BodyParser.json())
+app.use('/api/v1/workouts',v1Routerworkout)
 
 
 // app.get('/',(req,res)=>{
