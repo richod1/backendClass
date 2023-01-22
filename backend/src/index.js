@@ -3,6 +3,7 @@ const port=3000;
 const app=express()
 const BodyParser=require('body-parser')
 const apicache=require("apicache")
+const {swaggerDocs:V1SwaggerDocs}=require("./v1/swagger")
 
 // const v1Router=require('./v1/routes')
 
@@ -20,5 +21,6 @@ app.use('/api/v1/workouts',v1Routerworkout)
 // })
 
 app.listen(port,()=>{
-    console.log(`server started on port ${port}`)
+    console.log(`server started on port ${port}`);
+    V1SwaggerDocs(app,port);
 })
